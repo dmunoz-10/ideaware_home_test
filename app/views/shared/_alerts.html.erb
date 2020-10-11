@@ -1,0 +1,23 @@
+<% if notice %>
+  <section class="hero is-info">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="subtitle is-4">
+          <%= notice %>
+        </h2>
+      </div>
+    </div>
+  </section>
+<% end %>
+
+<% if alert %>
+  <section class="hero is-danger">
+    <div class="hero-body">
+      <div class="container">
+        <h2 class="subtitle is-4">
+          <%= alert %>
+        </h2>
+      </div>
+    </div>
+  </section>
+<% end %>

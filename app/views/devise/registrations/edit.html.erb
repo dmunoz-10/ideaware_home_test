@@ -1,43 +1,109 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="container">
+  <div class="columns mt-5">
+    <div class="column is-12-mobile is-10-tablet is-offset-1-tablet is-8-desktop is-offset-2-desktop is-6-widescreen is-offset-3-widescreen has-text-centered mt-6">
+      <h2 class="title is-2 has-text-centered">Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true, html: { method: :put }) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        <div class="field is-horizontal column is-12 my-2">
+          <div class="field-label is-normal">
+            <%= f.label :username, class: 'label' %>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control has-icons-left">
+                <%= f.text_field :username, class: 'input', autofocus: true, autocomplete: "username" %>
+                <span class="icon is-left"><i class="fas fa-user"></i></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal column is-12 my-2">
+          <div class="field-label is-normal">
+            <%= f.label :email, class: 'label' %>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control has-icons-left">
+                <%= f.email_field :email, class: 'input', autocomplete: "email" %>
+                <span class="icon is-left"><i class="fas fa-envelope"></i></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="field is-horizontal column is-12 my-2">
+          <div class="field-label is-normal">
+            <%= f.label :password, class: 'label' %>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control has-icons-left">
+                <%= f.password_field :password, class: 'input', autocomplete: "new-password" %>
+                <span class="icon is-left"><i class="fas fa-lock"></i></span>
+              </p>
+              <p class="help">
+                <% if @minimum_password_length %>
+                  <em><%= @minimum_password_length %> characters minimum</em>
+                <% end %>
+                <i>(leave blank if you don't want to change it)</i>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal column is-12 my-2">
+          <div class="field-label is-normal">
+            <%= f.label :password_confirmation, class: 'label is-capitalized' %>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control has-icons-left">
+                <%= f.password_field :password_confirmation, class: 'input', autocomplete: "new-password" %>
+                <span class="icon is-left"><i class="fas fa-lock"></i></span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="field is-horizontal column is-12 my-2">
+          <div class="field-label is-normal">
+            <%= f.label :current_password, class: 'label is-capitalized' %>
+          </div>
+          <div class="field-body">
+            <div class="field">
+              <p class="control has-icons-left">
+                <%= f.password_field :current_password, class: 'input', required: true, autocomplete: "current-password" %>
+                <span class="icon is-left"><i class="fas fa-lock"></i></span>
+              </p>
+              <p class="help">
+                <i>(we need your current password to confirm your changes)</i>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 has-text-centered">
+          <%= f.button 'Update', class: 'button is-success' %>
+        </div>
+      <% end %>
+
+      <div class="mt-5">
+        <h4 class="title is-4 mb-1">Cancel my account</h4>
+
+        <p class="mt-4 mb-2">Unhappy?</p>
+        <%= button_to registration_path(resource_name), class: 'button is-danger is-outlined mb-2', data: { confirm: 'Are you sure?' }, method: :delete do %>
+          Cancel my account
+        <% end %>
+
+        <%= link_to 'Back', :back %>
+      </div>
+    </div>
   </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+</div>

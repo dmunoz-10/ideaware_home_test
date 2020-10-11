@@ -1,0 +1,30 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <%= link_to 'Ideaware Home Test', root_path, class: 'navbar-item' %>
+  </div>
+
+  <div id="navbar" class="navbar-menu">
+    <div class="navbar-end">
+      <a class="navbar-item" href="#">Favourites</a>
+
+      <% if user_signed_in? %>
+        <div class="navbar-item has-dropdown is-hoverable">
+          <a class="navbar-link is-rounded">
+            <img src="https://api.adorable.io/avatars/40/<%= current_user.username %>.png" alt="Users' avatar" style="border-radius: 50%">
+          </a>
+
+          <div class="navbar-dropdown" style="left: -50px !important">
+            <%= link_to 'Edit profile', edit_user_registration_path, class: 'navbar-item' %>
+
+            <hr class="navbar-divider">
+
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'navbar-item' %>
+          </div>
+        </div>
+      <% else %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'navbar-item' %>
+        <%= link_to 'Sign in', user_session_path, class: 'navbar-item' %>
+      <% end %>
+    </div>
+  </div>
+</nav>
