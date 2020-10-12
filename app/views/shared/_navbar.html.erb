@@ -1,10 +1,18 @@
 <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <%= link_to 'Ideaware Home Test', root_path, class: 'navbar-item' %>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
   </div>
 
   <div id="navbar" class="navbar-menu">
     <div class="navbar-end">
+      <a href="https://github.com/dmunoz-10/ideaware_home_test" target="_blank" class="navbar-item">GitHub</a>
+
       <% if user_signed_in? %>
         <%= link_to 'Favourites', favourite_images_path, class: 'navbar-item' %>
 

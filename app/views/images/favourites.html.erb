@@ -10,7 +10,14 @@
         <div class="columns is-multiline"
              data-action="scroll@window->infinite-scroll#scroll"
              data-target="infinite-scroll.entries">
-          <%= render partial: 'images/image', collection: @images, as: :image %>
+
+          <% if @images.size > 0 %>
+            <%= render partial: 'images/image', collection: @images, as: :image %>
+          <% else %>
+            <div class="has-text-centered" style="width: 100%;">
+              <h4 class="mt-6 subtitle is-4">This is empty, start to find images and mark as favourite!</h4>
+            </div>
+          <% end %>
         </div>
         <div class="lds-ring is-hidden" data-target="infinite-scroll.loading"><div></div><div></div><div></div><div></div></div>
       </div>
