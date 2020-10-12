@@ -6,7 +6,7 @@ class ImagesController < ApplicationController
 
   def search
     @page = params[:page] || 1
-    @images = Unsplash::Photo.search(params[:q], @page, 12)
+    @images = Unsplash::Photo.search(params[:q], @page, 9)
     render json: {
       entries: render_to_string(
         partial: 'images/image_unsplash',
