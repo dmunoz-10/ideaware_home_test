@@ -1,21 +1,15 @@
 <div class="container">
   <div class="columns">
-    <div class="column is-12-mobile is-10-tablet is-offset-1-tablet has-text-centered mt-6"
+    <div class="column is-12-mobile is-10-tablet is-offset-1-tablet has-text-centered mt-6 pr-0"
          data-controller="infinite-scroll" data-infinite-scroll-url="<%= search_images_path %>"
          data-infinite-scroll-page="1" data-infinite-scroll-active="true">
-        <div class="field is-horizontal">
-          <div class="field-label is-normal">
-            <label for="search" class="label">Search</label>
-          </div>
-          <div class="field-body">
-            <div class="field">
-              <p class="control has-icons-left">
-                <input type="text" name="search" id"="search" class="input" placeholder="panda"
-                       data-target="infinite-scroll.search" data-action="keyup@window->infinite-scroll#submit">
-                <span class="icon is-left"><i class="fas fa-search"></i></span>
-              </p>
-            </div>
-          </div>
+        <div class="field">
+          <label for="search" class="label title is-3 mb-3">Search</label>
+          <p class="control has-icons-left mx-2">
+            <input type="text" name="search" id"="search" class="input" placeholder="panda"
+                   data-target="infinite-scroll.search" data-action="keyup@window->infinite-scroll#submit">
+            <span class="icon is-left"><i class="fas fa-search"></i></span>
+          </p>
         </div>
 
       <div class="mt-5" data-controller="modal">

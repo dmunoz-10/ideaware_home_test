@@ -1,6 +1,6 @@
 <div class="column is-12-mobile is-6-tablet is-4-desktop">
   <% if user_signed_in? %>
-    <div class="card" data-controller="favorite" data-favorite-url="<%= favorite_image_path %>"
+    <div class="card mx-1" data-controller="favorite" data-favorite-url="<%= favorite_image_path %>"
          data-favorite-id-unsplash="<%= image.id %>" data-favorite-url-unsplash="<%= image.urls.raw %>">
       <div class="card-image has-text-centered">
         <figure class="image" style= "cursor: pointer;">
@@ -14,7 +14,7 @@
       </div>
     </div>
   <% else %>
-    <div class="card">
+    <div class="card mx-1">
       <div class="card-image has-text-centered">
         <figure class="image" style= "cursor: pointer;">
           <%= image_tag image.urls.raw, alt: 'Image', data: { action: 'click->modal#open' } %>
