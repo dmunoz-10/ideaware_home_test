@@ -3,8 +3,7 @@ Rails.application.routes.draw do
 
   scope '/images' do
     get '/search', to: 'images#search', as: :search_images
-    post '/favourite/:url', to: 'images#favourite', as: :favourite_image
-    delete '/unfavourite/:id', to: 'images#unfavourite', as: :unfavourite_image
+    post '/favourite', to: 'images#favourite', as: :favourite_image
   end
 
   root to: 'pages#home'

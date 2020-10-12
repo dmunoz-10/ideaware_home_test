@@ -1,2 +1,1 @@
-json.method 'delete'
-json.url unfavourite_image_url(@image.url)
+json.action @image.persisted? ? 'favourite' : 'unfavourite'

@@ -8,19 +8,23 @@ export default class extends Controller {
   }
 
   scroll() {
-    let body = document.body
-    let html = document.documentElement
+    if (this.active) {
+      let body = document.body
+      let html = document.documentElement
 
-    let height = Math.max(
-      body.scrollHeight,
-      body.offsetHeight,
-      html.clientHeight,
-      html.scrollHeight,
-      html.offsetHeight
-    )
+      let height = Math.max(
+        body.scrollHeight,
+        body.offsetHeight,
+        html.clientHeight,
+        html.scrollHeight,
+        html.offsetHeight
+      )
 
-    if (this.active && window.pageYOffset >= height - window.innerHeight - 200) {
-      this.submitAjax()
+      if (window.pageYOffset >= height - window.innerHeight - 200) {
+        this.active = false
+        this.loading(true)
+        this.submitAjax()
+      }
     }
   }
 
@@ -32,8 +36,6 @@ export default class extends Controller {
   }
 
   submitAjax() {
-    this.active = false
-    this.loading(true)
     Rails.ajax({
       type: 'GET',
       url: `${this.url}?q=${this.searchTarget.value}&page=${this.page}`,

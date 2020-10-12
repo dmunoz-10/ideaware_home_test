@@ -17,9 +17,12 @@ ActiveRecord::Schema.define(version: 2020_10_11_185624) do
 
   create_table "images", force: :cascade do |t|
     t.bigint "user_id", null: false
+    t.string "id_unsplash", null: false
     t.string "url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["id_unsplash"], name: "index_images_on_id_unsplash", unique: true
+    t.index ["url"], name: "index_images_on_url", unique: true
     t.index ["user_id"], name: "index_images_on_user_id"
   end
 

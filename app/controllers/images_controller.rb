@@ -3,7 +3,6 @@
 # Images Controller
 class ImagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :search
-  before_action :set_image, only: :destroy
 
   def search
     @page = params[:page] || 1
@@ -19,29 +18,17 @@ class ImagesController < ApplicationController
   end
 
   def favourite
-    @image = current_user.images.new(image_params)
-    if @image.save
-      render :favourite
+    @image = Image.find_by(id_unsplash: params[:image][:id_unsplash])
+    if @image
+      @image.destroy
     else
-      render :error
-    end
-  end
-
-  def unfavourite
-    if @image.destroy
-      render :destroy
-    else
-      render :error
+      @image = current_user.images.create(image_params)
     end
   end
 
   private
 
   def image_params
-    params.require(:image).permit(:id_unsplash)
-  end
-
-  def set_image
-    @image = Image.find_by_hashid!(params[:id])
+    params.require(:image).permit(:id_unsplash, :url)
   end
 end

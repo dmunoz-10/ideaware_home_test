@@ -1,11 +1,10 @@
 @import "~bulma";
 
-.fas .fa-heart {
+.liked {
+  color: #d73a49;
+}
+.not_liked {
   &:hover {
-    color: #d73a49;
-  }
-
-  &.liked {
     color: #d73a49;
   }
 }

@@ -1,22 +1,23 @@
 <div class="column is-12-mobile is-6-tablet is-4-desktop">
   <% if user_signed_in? %>
-    <div class="card" data-controller="favourite" data-favourite-url="<%= favourite_image_url(image.urls.raw) %>" data-favourite-method="post">
+    <div class="card" data-controller="favourite" data-favourite-url="<%= favourite_image_path %>"
+         data-favourite-id-unsplash="<%= image.id %>" data-favourite-url-unsplash="<%= image.urls.raw %>">
       <div class="card-image has-text-centered">
-        <figure class="image" style="cursor: pointer;">
-          <%= image_tag image.urls.raw, alt: '', data: { action: 'click->modal#open' } %>
+        <figure class="image" style= "cursor: pointer;">
+          <%= image_tag image.urls.raw, alt: 'Image', data: { action: 'click->modal#open' } %>
         </figure>
       </div>
       <div class="card-content py-0 px-0">
         <p class="has-text-centered" style="width: 100%">
-          <i class="fas fa-heart" data-target="favourite.heart" data-action="click->favourite#submit"></i>
+          <i class="fas fa-heart not_liked" style= "cursor: pointer;" data-target="favourite.heart" data-action="click->favourite#submit"></i>
         </p>
       </div>
     </div>
   <% else %>
     <div class="card">
       <div class="card-image has-text-centered">
-        <figure class="image" style="cursor: pointer;">
-          <%= image_tag image.urls.raw, alt: '', data: { action: 'click->modal#open' } %>
+        <figure class="image" style= "cursor: pointer;">
+          <%= image_tag image.urls.raw, alt: 'Image', data: { action: 'click->modal#open' } %>
         </figure>
       </div>
     </div>

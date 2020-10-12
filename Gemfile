@@ -25,7 +25,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise', '~> 4.7', '>= 4.7.3'
-gem 'hashid-rails', '~> 1.4', '>= 1.4.1'
 gem 'rubocop', '~> 0.93.0'
 gem 'unsplash', '~> 2.1'
 
