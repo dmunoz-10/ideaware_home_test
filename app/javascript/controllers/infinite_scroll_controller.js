@@ -36,18 +36,31 @@ export default class extends Controller {
   }
 
   submitAjax() {
+    let url = ''
+    if (this.hasSearchTarget) {
+      url = `${this.url}?q=${this.searchTarget.value}&page=${this.page}`
+    } else {
+      url = `${this.url}?page=${this.page}`
+    }
+
     Rails.ajax({
+      url: url,
       type: 'GET',
-      url: `${this.url}?q=${this.searchTarget.value}&page=${this.page}`,
-      success: ({ entries }) => {
+      dataType: 'json',
+      success: ({ entries, next }) => {
         this.loading(false)
         if (this.page === 1) {
           this.entriesTarget.innerHTML = entries
         } else {
           this.entriesTarget.insertAdjacentHTML('beforeend', entries)
         }
-        this.page++
-        this.active = true
+
+        if (next === undefined) {
+          this.page++
+          this.active = true
+        } else if (next) {
+          this.active = true
+        }
       }
     })
   }

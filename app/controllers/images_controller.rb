@@ -9,7 +9,7 @@ class ImagesController < ApplicationController
     @images = Unsplash::Photo.search(params[:q], @page, 12)
     render json: {
       entries: render_to_string(
-        partial: 'images/image',
+        partial: 'images/image_unsplash',
         collection: @images,
         as: :image,
         formats: [:html]
@@ -23,6 +23,25 @@ class ImagesController < ApplicationController
       @image.destroy
     else
       @image = current_user.images.create(image_params)
+    end
+  end
+
+  def favourites
+    @pagy, @images = pagy(current_user.images)
+
+    respond_to do |format|
+      format.html
+      format.json {
+        render json: {
+          entries: render_to_string(
+            partial: 'images/image',
+            collection: @images,
+            as: :image,
+            formats: [:html]
+          ),
+          next: !!@pagy.next
+        }
+      }
     end
   end
 

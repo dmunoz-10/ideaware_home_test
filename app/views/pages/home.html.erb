@@ -2,7 +2,7 @@
   <div class="columns">
     <div class="column is-12-mobile is-10-tablet is-offset-1-tablet has-text-centered mt-6"
          data-controller="infinite-scroll" data-infinite-scroll-url="<%= search_images_path %>"
-         data-infinite-scroll-page="1" data-infinite-scroll-active="true" id="infinite-scroll-div">
+         data-infinite-scroll-page="1" data-infinite-scroll-active="true">
         <div class="field is-horizontal">
           <div class="field-label is-normal">
             <label for="search" class="label">Search</label>
@@ -18,9 +18,9 @@
           </div>
         </div>
 
-      <div class="mt-4" data-controller="modal">
+      <div class="mt-5" data-controller="modal">
         <%= render partial: 'images/modal' %>
-        <div class="columns is-multiline" id="div_entries"
+        <div class="columns is-multiline"
              data-action="scroll@window->infinite-scroll#scroll"
              data-target="infinite-scroll.entries"></div>
         <div class="lds-ring is-hidden" data-target="infinite-scroll.loading"><div></div><div></div><div></div><div></div></div>
