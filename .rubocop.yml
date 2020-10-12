@@ -31,6 +31,12 @@ Style/HashTransformValues:
   Enabled: false
 Rails/FilePath:
   Enabled: false
+Rspec/ExampleLength:
+  Enabled: false
+Rspec/EmptyExampleGroup:
+  Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
 AllCops:
   TargetRubyVersion: 2.7
   Include:

@@ -8,12 +8,12 @@ RSpec.describe ImagesController, type: :routing do
       expect(get: '/images/search').to route_to('images#search')
     end
 
-    it 'routes to #favourite' do
-      expect(post: '/images/favourite').to route_to('images#favourite')
+    it 'routes to #favorite' do
+      expect(post: '/images/favorite').to route_to('images#favorite')
     end
 
-    it 'routes to #favourites' do
-      expect(get: '/images/favourites').to route_to('images#favourites')
+    it 'routes to #favorites' do
+      expect(get: '/images/favorites').to route_to('images#favorites')
     end
   end
 end

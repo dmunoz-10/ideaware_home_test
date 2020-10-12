@@ -17,7 +17,7 @@ class ImagesController < ApplicationController
     }
   end
 
-  def favourite
+  def favorite
     @image = Image.find_by(id_unsplash: params[:image][:id_unsplash])
     if @image
       @image.destroy
@@ -26,7 +26,7 @@ class ImagesController < ApplicationController
     end
   end
 
-  def favourites
+  def favorites
     @pagy, @images = pagy(current_user.images)
 
     respond_to do |format|

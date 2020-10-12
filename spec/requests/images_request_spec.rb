@@ -17,44 +17,44 @@ RSpec.describe 'Images', type: :request do
     end
   end
 
-  describe 'POST #favourite' do
+  describe 'POST #favorite' do
     context 'when the user has not liked the image' do
-      it 'must add the image to favourites' do
+      it 'must add the image to favorites' do
         photos = Unsplash::Photo.search('panda', 1, 1)
         params = { image: { id_unsplash: photos[0].id, url: photos[0].urls.raw } }
-        post favourite_image_path, params: params, xhr: true
+        post favorite_image_path, params: params, xhr: true
 
-        expect(json['action']).to eq('favourite')
+        expect(json['action']).to eq('favorite')
       end
     end
 
     context 'when the user has liked the image' do
-      it 'must remove the image from favourites' do
+      it 'must remove the image from favorites' do
         photos = Unsplash::Photo.search('panda', 1, 1)
         image = create(:image, user: user, id_unsplash: photos[0].id,
                                url: photos[0].urls.raw)
 
         params = { image: { id_unsplash: image.id_unsplash, url: image.url } }
-        post favourite_image_path, params: params, xhr: true
+        post favorite_image_path, params: params, xhr: true
 
-        expect(json['action']).to eq('unfavourite')
+        expect(json['action']).to eq('unfavorite')
       end
     end
   end
 
-  describe 'GET #favourites' do
+  describe 'GET #favorites' do
     context 'when is not an ajax request' do
       it 'must render a html' do
-        get favourite_images_path
+        get favorite_images_path
 
         expect(response.content_type).to eq('text/html; charset=utf-8')
-        expect(response).to render_template(:favourites)
+        expect(response).to render_template(:favorites)
       end
     end
 
     context 'when is an ajax request' do
       it 'must render a json' do
-        get favourite_images_path(page: 1), xhr: true, headers: { 'DATA-TYPE': 'json' }
+        get favorite_images_path(page: 1), xhr: true
 
         expect(response.content_type).to eq('text/plain; charset=utf-8')
         expect(json.keys).to eq(%w[entries])

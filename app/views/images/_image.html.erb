@@ -1,6 +1,6 @@
 <div class="column is-12-mobile is-6-tablet is-4-desktop">
-  <div class="card" data-controller="favourite" data-favourite-url="<%= favourite_image_path %>"
-       data-favourite-id-unsplash="<%= image.id_unsplash %>" data-favourite-url-unsplash="<%= image.url %>">
+  <div class="card" data-controller="favorite" data-favorite-url="<%= favorite_image_path %>"
+       data-favorite-id-unsplash="<%= image.id_unsplash %>" data-favorite-url-unsplash="<%= image.url %>">
     <div class="card-image has-text-centered">
       <figure class="image" style= "cursor: pointer;">
         <%= image_tag image.url, alt: 'Image', data: { action: 'click->modal#open' } %>
@@ -8,7 +8,7 @@
     </div>
     <div class="card-content py-0 px-0">
       <p class="has-text-centered" style="width: 100%">
-        <i class="fas fa-heart liked" style= "cursor: pointer;" data-target="favourite.heart" data-action="click->favourite#submit"></i>
+        <i class="fas fa-heart liked" style= "cursor: pointer;" data-target="favorite.heart" data-action="click->favorite#submit"></i>
       </p>
     </div>
   </div>

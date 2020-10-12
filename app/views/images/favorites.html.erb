@@ -1,9 +1,9 @@
 <div class="container">
   <div class="columns">
     <div class="column is-12-mobile is-10-tablet is-offset-1-tablet has-text-centered mt-6"
-         data-controller="infinite-scroll" data-infinite-scroll-url="<%= favourite_images_path %>"
+         data-controller="infinite-scroll" data-infinite-scroll-url="<%= favorite_images_path %>"
          data-infinite-scroll-page="2" data-infinite-scroll-active="<%= !!@pagy.next %>">
-      <h2 class="title is-2">Your favourite images</h2>
+      <h2 class="title is-2">Your favorite images</h2>
 
       <div class="mt-6" data-controller="modal">
         <%= render partial: 'images/modal' %>
@@ -15,7 +15,7 @@
             <%= render partial: 'images/image', collection: @images, as: :image %>
           <% else %>
             <div class="has-text-centered" style="width: 100%;">
-              <h4 class="mt-6 subtitle is-4">This is empty, start to find images and mark as favourite!</h4>
+              <h4 class="mt-6 subtitle is-4">This is empty, start to find images and mark them as favorites!</h4>
             </div>
           <% end %>
         </div>
