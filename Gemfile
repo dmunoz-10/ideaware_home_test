@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise', '~> 4.7', '>= 4.7.3'
 gem 'pagy', '~> 3.8', '>= 3.8.3'
 gem 'rubocop', '~> 0.93.0'
+gem 'rubocop-rails'
+gem 'rubocop-rspec'
 gem 'unsplash', '~> 2.1'
 
 # Use Active Storage variant
@@ -46,9 +48,9 @@ group :development, :test do
 end
 
 group :development do
+  gem 'listen', '~> 3.2'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'

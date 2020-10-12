@@ -31,17 +31,11 @@ class ImagesController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json {
-        render json: {
-          entries: render_to_string(
-            partial: 'images/image',
-            collection: @images,
-            as: :image,
-            formats: [:html]
-          ),
-          next: !!@pagy.next
-        }
-      }
+      format.json do
+        render json: { entries: render_to_string(partial: 'images/image', collection: @images,
+                                                 as: :image, formats: [:html]),
+                       next: !@pagy.next.nil? }
+      end
     end
   end
 
