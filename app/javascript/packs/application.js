@@ -3,8 +3,14 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 import '../stylesheets/application'
+import "controllers"
+import Rails from '@rails/ujs'
 
-require("@rails/ujs").start()
+window.Rails = Rails
+if (Rails.fire(document, 'rails:attachBidings')) {
+  Rails.start()
+}
+
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")

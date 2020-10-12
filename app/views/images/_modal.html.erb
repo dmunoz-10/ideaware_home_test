@@ -1,0 +1,9 @@
+<div class="modal" data-target="modal.container">
+  <div class="modal-background" data-target="modal.background" data-action="click->modal#closeBackground keyup@window->modal#closeWithKeyboard"></div>
+  <div class="modal-content">
+    <p class="image">
+      <%= image_tag '', id: 'image_modal', alt: 'Image', data: { target: 'modal.image' } %>
+    </p>
+  </div>
+  <button class="modal-close is-large" aria-label="close" data-action="click->modal#close"></button>
+</div>
