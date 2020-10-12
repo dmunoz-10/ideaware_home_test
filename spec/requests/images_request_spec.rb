@@ -54,10 +54,10 @@ RSpec.describe 'Images', type: :request do
 
     context 'when is an ajax request' do
       it 'must render a json' do
-        get favorite_images_path(page: 1), xhr: true
+        get favorite_images_path(page: 1), xhr: true, headers: { 'ACCEPT': 'application/json' }
 
-        expect(response.content_type).to eq('text/plain; charset=utf-8')
-        expect(json.keys).to eq(%w[entries])
+        expect(response.content_type).to eq('application/json; charset=utf-8')
+        expect(json.keys).to eq(%w[entries next])
       end
     end
   end
