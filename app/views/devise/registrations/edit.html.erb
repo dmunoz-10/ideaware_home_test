@@ -1,7 +1,7 @@
 <div class="container">
   <div class="columns mt-5">
     <div class="column is-12-mobile is-10-tablet is-offset-1-tablet is-8-desktop is-offset-2-desktop is-6-widescreen is-offset-3-widescreen has-text-centered mt-6">
-      <h2 class="title is-2 has-text-centered">Edit <%= resource_name.to_s.humanize %></h2>
+      <h2 class="title is-2 has-text-centered is-uppercase">Edit <%= resource_name.to_s.humanize %></h2>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), multipart: true, html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>

@@ -4,9 +4,10 @@
          data-controller="infinite-scroll" data-infinite-scroll-url="<%= search_images_path %>"
          data-infinite-scroll-page="1" data-infinite-scroll-active="true">
         <div class="field">
-          <label for="search" class="label title is-3 mb-3">Search</label>
+          <label for="search" class="label title is-3 mb-3 is-uppercase">Search</label>
           <p class="control has-icons-left mx-2">
-            <input type="text" name="search" id"="search" class="input" placeholder="panda"
+            <input type="text" name="search" id"="search" class="input"
+                   placeholder="Please type in what you wish to search for, e.g., dogs, lakes, mountains"
                    data-target="infinite-scroll.search" data-action="keyup@window->infinite-scroll#submit">
             <span class="icon is-left"><i class="fas fa-search"></i></span>
           </p>

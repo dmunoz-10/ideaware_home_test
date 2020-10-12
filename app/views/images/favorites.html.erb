@@ -3,7 +3,7 @@
     <div class="column is-12-mobile is-10-tablet is-offset-1-tablet has-text-centered mt-6 pr-0"
          data-controller="infinite-scroll" data-infinite-scroll-url="<%= favorite_images_path %>"
          data-infinite-scroll-page="2" data-infinite-scroll-active="<%= !!@pagy.next %>">
-      <h2 class="title is-2">Your favorite images</h2>
+      <h2 class="title is-2 is-uppercase">Your favorite images</h2>
 
       <div class="mt-6" data-controller="modal">
         <%= render partial: 'images/modal' %>

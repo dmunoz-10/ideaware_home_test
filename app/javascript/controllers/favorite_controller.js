@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = [ 'heart' ]
 
   connect() {
-    this.classHeart = [ 'liked', 'not_liked' ]
   }
 
   submit() {
@@ -24,9 +23,13 @@ export default class extends Controller {
         return true
       },
       success: ({ action }) => {
-        this.classHeart.forEach((item) => {
-          this.heartTarget.classList.toggle(item)
-        })
+        if (action === 'favorite' && !this.heartTarget.classList.contains('liked')) {
+          this.heartTarget.classList.add('liked')
+          this.heartTarget.classList.remove('not_liked')
+        } else if (action === 'unfavorite' && !this.heartTarget.classList.contains('not_liked')) {
+          this.heartTarget.classList.add('not_liked')
+          this.heartTarget.classList.remove('liked')
+        }
       }
     })
   }

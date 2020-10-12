@@ -1,7 +1,7 @@
 <div class="container">
   <div class="columns">
     <div class="column is-12-mobile is-10-tablet is-offset-1-tablet is-8-desktop is-offset-2-desktop is-6-widescreen is-offset-3-widescreen has-text-centered mt-6">
-      <h3 class="title is-1 mb-8">Forgot your password?</h3>
+      <h3 class="title is-1 mb-8 is-uppercase">Forgot your password?</h3>
 
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
